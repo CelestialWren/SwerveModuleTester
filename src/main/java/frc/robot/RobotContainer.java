@@ -15,10 +15,26 @@ public class RobotContainer {
   private final SwerveModule module2 = new SwerveModule(2);
   private final SwerveModule module3 = new SwerveModule(3);
   private final SwerveModule module4 = new SwerveModule(4);
+  
+  private final ShuffleboardInfo = ShuffleboardInfo().getInstance();
+
+  private final SwerveModuleTab module1Tab = new SwerveModuleTab(module1);
+  private final SwerveModuleTab module2Tab = new SwerveModuleTab(module2);
+  private final SwerveModuleTab module3Tab = new SwerveModuleTab(module3);
+  private final SwerveModuleTab module4Tab = new SwerveModuleTab(module4);
 
   private final CommandXboxController controller = new CommandXboxController(0);
 
   public RobotContainer() {
+    ArrayList<ShuffleboardTabBase> tabs = new ArrayList<>();
+
+    tabs.add(module1Tab);
+    tabs.add(module2Tab);
+    tabs.add(module3Tab);
+    tabs.add(module4Tab);
+
+    ShuffleboardInfo.addTabs(tabs);
+
     configureBindings();
   }
 
